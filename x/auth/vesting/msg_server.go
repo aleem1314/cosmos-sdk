@@ -131,8 +131,7 @@ func (s msgServer) CreatePermanentLockedAccount(goCtx context.Context, msg *type
 		return nil, sdkerrors.Wrapf(sdkerrors.ErrInvalidRequest, "invalid account type; expected: BaseAccount, got: %T", baseAccountI)
 	}
 
-	var acc authtypes.AccountI
-	acc = types.NewPermanentLockedAccount(baseAcc, msg.Amount)
+	var acc authtypes.AccountI = types.NewPermanentLockedAccount(baseAcc, msg.Amount)
 
 	ak.SetAccount(ctx, acc)
 
