@@ -80,6 +80,7 @@ timestamp.`,
 
 	return cmd
 }
+
 // NewMsgCreatePermanentLockedAccountCmd returns a CLI command handler for creating a
 // MsgCreatePermanentLockedAccount transaction.
 func NewMsgCreatePermanentLockedAccountCmd() *cobra.Command {

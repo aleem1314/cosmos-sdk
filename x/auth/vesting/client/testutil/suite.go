@@ -115,7 +115,7 @@ func (s *IntegrationTestSuite) TestNewMsgCreateVestingAccountCmd() {
 		tc := tc
 
 		s.Run(name, func() {
-		clientCtx := val.ClientCtx
+			clientCtx := val.ClientCtx
 
 			bw, err := clitestutil.ExecTestCLICmd(clientCtx, cli.NewMsgCreateVestingAccountCmd(), tc.args)
 			if tc.expectErr {
@@ -127,7 +127,7 @@ func (s *IntegrationTestSuite) TestNewMsgCreateVestingAccountCmd() {
 				txResp := tc.respType.(*sdk.TxResponse)
 				s.Require().Equal(tc.expectedCode, txResp.Code)
 			}
-	})
+		})
 	}
 }
 func (s *IntegrationTestSuite) TestNewMsgCreatePermanentLockedAccountCmd() {
