@@ -18,6 +18,8 @@ func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
 	cdc.RegisterConcrete(&DelayedVestingAccount{}, "cosmos-sdk/DelayedVestingAccount", nil)
 	cdc.RegisterConcrete(&PeriodicVestingAccount{}, "cosmos-sdk/PeriodicVestingAccount", nil)
 	cdc.RegisterConcrete(&PermanentLockedAccount{}, "cosmos-sdk/PermanentLockedAccount", nil)
+	cdc.RegisterConcrete(&MsgCreateVestingAccount{}, "cosmos-sdk/MsgCreateVestingAccount", nil)
+	cdc.RegisterConcrete(&MsgCreatePermanentLockedAccount{}, "cosmos-sdk/MsgCreatePermLockedAccount", nil)
 }
 
 // RegisterInterface associates protoName with AccountI and VestingAccount
