@@ -35,7 +35,6 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 # Changelog
 
-<<<<<<< HEAD
 ## v0.43.0-regen-1
 
 ### Features
