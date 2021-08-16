@@ -125,9 +125,6 @@ func (msg MsgCreatePermanentLockedAccount) GetSignBytes() []byte {
 
 // GetSigners returns the expected signers for a MsgCreatePermanentLockedAccount.
 func (msg MsgCreatePermanentLockedAccount) GetSigners() []sdk.AccAddress {
-	from, err := sdk.AccAddressFromBech32(msg.FromAddress)
-	if err != nil {
-		panic(err)
-	}
+	from, _ := sdk.AccAddressFromBech32(msg.FromAddress)
 	return []sdk.AccAddress{from}
 }
