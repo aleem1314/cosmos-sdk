@@ -99,20 +99,11 @@ func (msg MsgCreatePermanentLockedAccount) Type() string { return TypeMsgCreateP
 
 // ValidateBasic Implements Msg.
 func (msg MsgCreatePermanentLockedAccount) ValidateBasic() error {
-	from, err := sdk.AccAddressFromBech32(msg.FromAddress)
-	if err != nil {
-		return err
+	if _, err := sdk.AccAddressFromBech32(msg.FromAddress); err != nil {
+	    return sdkerrors.Wrapf(sdkerrors.ErrInvalidAddress, "invalid sender address: %s", err)
 	}
-	to, err := sdk.AccAddressFromBech32(msg.ToAddress)
-	if err != nil {
-		return err
-	}
-	if err := sdk.VerifyAddressFormat(from); err != nil {
-		return sdkerrors.Wrapf(sdkerrors.ErrInvalidAddress, "invalid sender address: %s", err)
-	}
-
-	if err := sdk.VerifyAddressFormat(to); err != nil {
-		return sdkerrors.Wrapf(sdkerrors.ErrInvalidAddress, "invalid recipient address: %s", err)
+	if _, err := sdk.AccAddressFromBech32(msg.ToAddress); err != nil {
+	    return sdkerrors.Wrapf(sdkerrors.ErrInvalidAddress, "invalid recipient address: %s", err)
 	}
 
 	if !msg.Amount.IsValid() {
